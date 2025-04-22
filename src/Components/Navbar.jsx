@@ -11,7 +11,6 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
           <a href="#home" className="font-mono text-xl font-bold text-white">
             Fullstack
             <span className="bg-gradient-to-r from-coral1 to-coral2 bg-clip-text text-transparent">
-              {" "}
               Developer
             </span>
           </a>
@@ -26,28 +25,28 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
           <div className="hidden md:flex items-center space-x-8">
             <a
               href="#home"
-              className="text-gray-300 hove:text-white transition-colors"
+              className="text-gray-300 hover:text-white transition-colors nav-link"
             >
               Home
             </a>
 
             <a
               href="#about"
-              className="text-gray-300 hove:text-white transition-colors"
+              className="text-gray-300 hover:text-white transition-colors nav-link"
             >
               About
             </a>
 
             <a
               href="#projects"
-              className="text-gray-300 hove:text-white transition-colors"
+              className="text-gray-300 hover:text-white transition-colors nav-link"
             >
               Projects
             </a>
 
             <a
               href="#contact"
-              className="text-gray-300 hove:text-white transition-colors"
+              className="text-gray-300 hover:text-white transition-colors nav-link"
             >
               Contact
             </a>

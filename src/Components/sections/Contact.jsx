@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { RevealOnScroll } from "../RevealOnScroll";
 import emailjs from "emailjs-com";
+import { ConfirmModal } from "../ConfirmModal";
+import { ErrorModal } from "../ErrorModal";
 export const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -8,6 +10,8 @@ export const Contact = () => {
     message: "",
   });
 
+  const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
+  const [isErrorModalOpen, setIsErrorModalOpen] = useState(false);
   const handleSubmit = (e) => {
     document.body.style.cursor = "wait";
     e.preventDefault();
@@ -20,13 +24,12 @@ export const Contact = () => {
         import.meta.env.VITE_PUBLIC_KEY
       )
       .then((result) => {
-        alert("Message Sent");
+        setIsConfirmModalOpen(true);
         document.body.style.cursor = "";
-        setFormData({ name: "", email: "", message: "" });
       })
       .catch(() => {
+        setIsErrorModalOpen(true);
         document.body.style.cursor = "";
-        alert("Oops! Something went wrong. Please try again.");
       });
   };
   return (
@@ -87,6 +90,14 @@ export const Contact = () => {
             </button>
           </form>
         </div>
+        <ConfirmModal
+          isConfirmOpen={isConfirmModalOpen}
+          onConfirmClose={setIsConfirmModalOpen}
+        />
+        <ErrorModal
+          isErrorOpen={isErrorModalOpen}
+          onErrorClose={setIsErrorModalOpen}
+        />
       </RevealOnScroll>
     </section>
   );
